@@ -1,1 +1,1 @@
-# lean-startup
+# udemy-modern-javascript
