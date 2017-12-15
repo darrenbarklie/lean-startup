@@ -6,9 +6,6 @@ let birthday = new Date('9-10-1981 11:25:00');
 birthday = new Date('Sept 10 1981');
 birthday = new Date('9/10/81');
 
-
-
-
 val = birthday;
 val = today.getMonth(); // Zero-based index
 val = today.getDate(); // Get current day index
@@ -24,8 +21,6 @@ birthday.setMonth(2);
 birthday.setDate(12);
 birthday.setFullYear(1985);
 birthday.setHours(3);
-
-
 
 
 console.log(birthday);
