@@ -12,5 +12,3 @@ li.appendChild(document.createTextNode('Hello world'));
 document.querySelector('ul.list').appendChild(li);
 
 console.log(li);
-
-
