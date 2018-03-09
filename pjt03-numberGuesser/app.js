@@ -42,9 +42,20 @@ guessBtn.addEventListener('click', function(){
     // Change border to green
     guessInput.style.borderColor = 'green';
     // Set message
-    setMessage(`You guessed ${winningNum} correctly!`, 'green')
+    setMessage(`You guessed ${winningNum} correctly!`, 'green');
   } else {
-    // Play again
+    guessesLeft -= 1
+    
+    if(guessesLeft === 0) {
+      // Game over
+      guessInput.disabled = true;
+      guessInput.style.borderColor = 'red';
+      setMessage(`You have no more guesses, you lose.`, 'red');
+    } else {
+      // Game continues
+      guessInput.value = '';
+      setMessage(`Guess incorrect, you have ${guessesLeft} guesses left.`, 'red')
+    }
   }
 });
 
