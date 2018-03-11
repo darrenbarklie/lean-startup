@@ -20,7 +20,7 @@ const daz = {
 
 
 // CONSTRUCTOR
-// Person constructor (with single property 'name')
+// Person constructor (with properties)
 // Allows us to instantiate a Person object
 function Person(name, dob) {
   this.name = name;
@@ -28,9 +28,9 @@ function Person(name, dob) {
   //this.age = age;
   this.birthday = new Date(dob);
   this.calculateAge = function(){
-    const diff = Date.now() - this.birthday.getTime();
-    const ageDate = new Date(diff);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    const diff = Date.now() - this.birthday.getTime(); // Return 1027298570498
+    const ageDate = new Date(diff); // Return Monday July 22 2002 01:44:23
+    return Math.abs(ageDate.getUTCFullYear() - 1970); // 2002 - 1070 = 32
   }
 }
 // To instantiate a new project, use NEW keyword
