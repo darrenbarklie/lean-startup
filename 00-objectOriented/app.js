@@ -43,7 +43,7 @@ function Person(name, dob) {
 // THIS references the current instance of the object (function scope)
 
 const dazzle = new Person('Daz', '8-22-1985');
-console.log(dazzle.calculateAge());
+//console.log(dazzle.calculateAge()); // Return 32
 
 
 
@@ -78,3 +78,36 @@ const re2 = new RegExp('//\w+');
 
 
 
+// PROTOTYPES 
+// Each object in JS has a prototype
+// A prototype is an object itself
+// All objects inherit their properties and methods from their prototype 
+// Object.prototype 
+// Person.prototype
+
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+}
+// Since the calculateAge function has no variance between instances, it should be assigned to the top-level prototypes
+
+// Calculate age
+Person.prototype.calculateAge = function(){
+  const diff = Date.now() - this.birthday.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970); 
+}
+// Get 
+
+
+const john = new Person('Jonh', 'Wick', '04-01-1967');
+const mary = new Person('Mary', 'Jane', 'March 20 1978');
+console.log(mary);
+
+console.log(john.calculateAge());
+
+
+
+
+ 
