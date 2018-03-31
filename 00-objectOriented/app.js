@@ -259,22 +259,3 @@ const jason = new Visitor('John', 'Doe', '555-555-5555', 'Standard');
 console.log(jason.greeting());
 
 console.log(Visitor.getMembershipCost());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
