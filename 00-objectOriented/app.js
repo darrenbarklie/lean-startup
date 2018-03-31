@@ -231,8 +231,34 @@ console.log(Client.addNumbers(1,3));
 
 
 
-// Inheritance and Extending CLasses
+// Inheritance and Extending Classes (SubClasses)
+class Human {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  }
+}
 
+class Visitor extends Human {
+  constructor(firstName, lastName, phone, membership) {
+    super(firstName, lastName); // Calls the parent Class constructor 
+    
+    this.phone = phone;
+    this.membership = membership;
+  }
+  
+  static getMembershipCost() {
+    return 500;
+  }
+}
+const jason = new Visitor('John', 'Doe', '555-555-5555', 'Standard');
+
+console.log(jason.greeting());
+
+console.log(Visitor.getMembershipCost());
 
 
 
