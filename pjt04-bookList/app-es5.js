@@ -52,7 +52,6 @@ UI.prototype.showAlert = function(message, className) {
   setTimeout(function(){
     document.querySelector('.alert').remove();
   }, 2000);
-  
 }
 
 
