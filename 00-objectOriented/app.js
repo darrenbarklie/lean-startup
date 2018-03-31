@@ -54,7 +54,7 @@ const dazzle = new Person('Daz', '8-22-1985');
 // String
 const name1 = 'Jeff';
 const name2 = new String('Jeff');
-// Note: name2 typeof is obect, not string
+// Note: name2 typeof is object, not string
 // Number
 const num1 = 5;
 const num2 = new Number(5);
@@ -90,6 +90,8 @@ function Person(firstName, lastName, dob) {
   this.lastName = lastName;
   this.birthday = new Date(dob);
 }
+
+
 // Since the calculateAge function has no variance between instances, it should be assigned to the top-level prototypes
 
 // Calculate age
@@ -109,14 +111,55 @@ Person.prototype.getsMarried = function(newLastName){
 
 const john = new Person('Jonh', 'Wick', '04-01-1967');
 const mary = new Person('Mary', 'Jane', 'March 20 1978');
-console.log(mary);
+//console.log(mary);
 
-console.log(john.calculateAge());
-console.log(john.getFullName());
-console.log(mary.getFullName());
+//console.log(john.calculateAge());
+//console.log(john.getFullName());
+//console.log(mary.getFullName());
 mary.getsMarried('Smith');
-console.log(mary.getFullName());
+//console.log(mary.getFullName());
+// Access to Object.prototype 
+//console.log(mary.hasOwnProperty('firstName')); // true
 
-console.log(mary.hasOwnProperty('firstName')); // true
 
- 
+
+// PROTOTYPE INHERITANCE
+// Person constructor 
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+// Greeting prototype method
+Person.prototype.greeting = function() {
+  return `Hello there ${this.firstName} ${this.lastName}`;
+}
+
+const person1 = new Person('John', 'Doe');
+console.log(person1.greeting());
+
+// Custom constructor 
+// .call() is a function that allows us to call another function from somewhere else in the current context
+function Customer(firstName, lastName, phone, membership) {
+  Person.call(this, firstName, lastName);
+  this.phone = phone;
+  this.membership = membership;
+}
+
+// Inherit the Person prototype methods
+Customer.prototype = Object.create(Person.prototype);
+
+// Make customer.prototype return Customer()
+Customer.prototype.constructor = Customer;
+
+// Create Customer
+const customer1 = new Customer('Tom', 'Smith', '555-555-5555', 'Standard');
+console.log(customer1);
+
+// Customer greeting 
+Customer.prototype.greeting = function() {
+    return `Hello there ${this.firstName}, welcome to our Company`;
+}
+
+console.log(customer1.greeting()); // Returns not a function...
+
