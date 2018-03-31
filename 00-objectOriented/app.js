@@ -163,3 +163,59 @@ Customer.prototype.greeting = function() {
 
 console.log(customer1.greeting()); // Returns not a function...
 
+
+
+// Using Object.create 
+const personPrototypes = {
+  greeting: function() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  },
+  getsMarried: function(newLastName) {
+    this.lastName = newLastName;
+  }
+}
+const jane = Object.create(personPrototypes);
+jane.firstName = 'Mary';
+jane.lastName = 'Williams';
+jane.age = 30;
+
+jane.getsMarried('Thompson');
+console.log(jane.greeting());
+
+const brad = Object.create(personPrototypes, {
+  firstName: {value: 'Brad'},
+  lastName: {value: 'Traversy'},
+  age: {value: 36}
+});
+
+console.log(brad);
+console.log(brad.greeting());
+
+
+
+// Using ES6 classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
