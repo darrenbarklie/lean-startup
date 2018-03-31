@@ -194,11 +194,44 @@ console.log(brad.greeting());
 
 
 // Using ES6 classes
+// Create a class with constructor, methods and properties
+class Client {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = new Date(dob);
+  }
+  greeting() {
+    return `Hello ${this.firstName} ${this.lastName}`;
+  } // Any method added inside the class is listed under the prototype
+  
+  calculateAge() {
+    const diff = Date.now() = this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+  
+  getsMarried(newLastName) {
+    this.lastName = newLastName;
+  }
+  
+  static addNumbers(x, y) {
+    return x + y;
+  }
+  // Static method is one that you can use without instantiating an object (creating an object from the class)
+}
+
+const jenny = new Client('Jenny', 'Jones', '11-12-1980');
+
+jenny.getsMarried('Smith');
+
+console.log(jenny);
+
+console.log(Client.addNumbers(1,3));
 
 
 
-
-
+// Inheritance and Extending CLasses
 
 
 
